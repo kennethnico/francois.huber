@@ -125,39 +125,84 @@
   .weekly-video-modal__player{ max-height: 70vh; }
 }
 
-
-/* Popup Instagram vertical (reel-style) */
-.mfp-instagram.mfp-iframe-holder .mfp-content{
-  /* ancho controlado por la altura disponible (para que sea alto y angosto) */
-  width: min(92vw, 48vh);
-  max-width: 520px;
+/* Desktop */
+/* Base compartida */
+#home{ position: relative; overflow: hidden; }
+#home .home-person{
+  background-image: url('../img/bg-alone.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
 }
 
-/* Forzar proporción vertical 9:16 en el contenedor */
-.mfp-instagram.mfp-iframe-holder .mfp-iframe-scaler{
-  padding-top: 0 !important;   /* anula el comportamiento por defecto de magnific */
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  max-height: 92vh;            /* “más alto” */
-  background: #000;
-  border-radius: 12px;
-  overflow: hidden;
+/* ----- Desktop ----- */
+#home .home-person--desktop{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: auto;
+
+  width: min(46vw, 520px);
+  height: 92vh;
+
+  background-position: right bottom;
+  z-index: 1;
 }
 
-/* iframe ocupa todo el contenedor */
-.mfp-instagram.mfp-iframe-holder .mfp-iframe{
-  width: 100%;
-  height: 100%;
-}
+/* Oculta el mobile-person en desktop */
+#home .home-person--mobile{ display: none; }
 
-@media (max-width: 576px){
-  .mfp-instagram.mfp-iframe-holder .mfp-content{
-    width: min(96vw, 60vh);
-    max-width: 96vw;
+/* Texto arriba de la persona desktop */
+#home .intro{ position: relative; z-index: 2; }
+
+@media (max-width: 768px){
+
+  /* Deja de centrar verticalmente el home para que pueda crecer hacia abajo */
+  #home.pp-scrollable{
+    align-items: flex-start !important; /* sobreescribe d-flex align-items-center */
   }
-  .mfp-instagram.mfp-iframe-holder .mfp-iframe-scaler{
-    max-height: 88vh;
-    border-radius: 10px;
+
+  /* Reduce padding vertical para ganar espacio útil */
+  #home .pp-scrollable .scroll-wrap,
+  #home .scroll-wrap{
+    padding: 6rem 0 2.5rem !important;
+  }
+
+  /* Columna: texto arriba, luego persona */
+  #home .row{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Asegura que la columna no esté “fija” a un alto que impida crecer */
+  #home .intro,
+  #home .scroll-wrap,
+  #home .container,
+  #home .row,
+  #home .col-lg-6.col-xl-5{
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* usa el elemento “en flujo” */
+  #home .home-person--desktop{ display: none; }
+  #home .home-person--mobile{
+    display: block;
+    position: relative;
+    margin: 1.25rem auto 5px;
+
+    width: min(82vw, 360px);
+    height: min(52vh, 420px);
+
+    background-position: center bottom;
+  }
+
+  /* centra el H1 */
+  #home h1{
+    text-align: center;
+    margin: 0;
+    font-size: 2.1rem;
+    line-height: 1.15;
   }
 }
-
