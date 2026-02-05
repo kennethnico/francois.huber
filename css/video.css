@@ -1,0 +1,126 @@
+/* =========================
+   Videos Semanales (thumb)
+   ========================= */
+.project-box-inner.weekly-video-thumb{
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Oscurece un poco para que el texto se lea */
+.project-box-inner.weekly-video-thumb:before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.55) 100%);
+}
+
+/* Asegura que el título quede arriba del overlay */
+.project-box-inner.weekly-video-thumb h4{
+  position: relative;
+  z-index: 1;
+}
+
+/* Mantén título visible en hover (tu CSS lo pone negro al hover) */
+.project-box:hover .project-box-inner.weekly-video-thumb h4{
+  color: #fff;
+}
+
+.weekly-video-play{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:3.9rem;
+  height:3.9rem;
+  border:2px solid #fff;
+  border-radius:50%;
+  z-index: 1;
+}
+
+.weekly-video-play:before{
+  content:'';
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-35%,-50%);
+  width:0;
+  height:0;
+  border-style: solid;
+  border-width: .65rem 0 .65rem 1.05rem;
+  border-color: transparent transparent transparent #fff;
+}
+
+/* =========================
+   Modal (pop-up) video
+   ========================= */
+.is-weekly-video-open{
+  overflow: hidden;
+}
+
+.weekly-video-modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 2000;
+}
+
+.weekly-video-modal.is-open{
+  display: flex;
+}
+
+.weekly-video-modal__backdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.75);
+}
+
+.weekly-video-modal__dialog{
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 20px 60px rgba(0,0,0,.55);
+}
+
+.weekly-video-modal__player{
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  display: block;
+  background: #000;
+  object-fit: contain; /* ideal para videos verticales tipo reel */
+}
+
+.weekly-video-modal__close{
+  position:absolute;
+  top: .5rem;
+  right: .5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  text-align: center;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.weekly-video-modal__close:hover{
+  background: rgba(0,0,0,.8);
+  color: #fff;
+}
+
+@media (max-width: 576px){
+  .weekly-video-modal{ padding: .75rem; }
+  .weekly-video-modal__player{ max-height: 70vh; }
+}
