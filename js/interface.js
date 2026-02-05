@@ -87,6 +87,33 @@
         preloader: false,
         fixedContentPos: false
     });
+/*
+    $(".popup-instagram").magnificPopup({
+      disableOn: 0, // fuerza popup también en mobile
+      type: "iframe",
+      mainClass: "mfp-fade mfp-instagram",
+      removalDelay: 160,
+      preloader: false,
+      fixedContentPos: false,
+      iframe: {
+        markup:
+          '<div class="mfp-iframe-scaler">' +
+          '<button title="Close (Esc)" type="button" class="mfp-close">×</button>' +
+          '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>' +
+          "</div>",
+      },
+    });*/
+
+$('.popup-instagram').magnificPopup({
+  disableOn: 0,
+  type: 'iframe',
+  mainClass: 'mfp-fade mfp-instagram',
+  removalDelay: 160,
+  preloader: false,
+  fixedContentPos: false
+});
+
+
 
 
 

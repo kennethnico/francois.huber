@@ -124,3 +124,40 @@
   .weekly-video-modal{ padding: .75rem; }
   .weekly-video-modal__player{ max-height: 70vh; }
 }
+
+
+/* Popup Instagram vertical (reel-style) */
+.mfp-instagram.mfp-iframe-holder .mfp-content{
+  /* ancho controlado por la altura disponible (para que sea alto y angosto) */
+  width: min(92vw, 48vh);
+  max-width: 520px;
+}
+
+/* Forzar proporción vertical 9:16 en el contenedor */
+.mfp-instagram.mfp-iframe-holder .mfp-iframe-scaler{
+  padding-top: 0 !important;   /* anula el comportamiento por defecto de magnific */
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 92vh;            /* “más alto” */
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* iframe ocupa todo el contenedor */
+.mfp-instagram.mfp-iframe-holder .mfp-iframe{
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 576px){
+  .mfp-instagram.mfp-iframe-holder .mfp-content{
+    width: min(96vw, 60vh);
+    max-width: 96vw;
+  }
+  .mfp-instagram.mfp-iframe-holder .mfp-iframe-scaler{
+    max-height: 88vh;
+    border-radius: 10px;
+  }
+}
+
