@@ -223,7 +223,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
+    color: var(--color-base);
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -241,5 +241,6 @@
   #home .scroll-wrap{
     padding-bottom: 6rem !important;
   }
+  .experience-info { padding-bottom: 3rem; }
 
 }

@@ -41,10 +41,7 @@
             "publicaciones",
             "canal",
           ],
-          // IMPORTANTE para mobile:
-          normalScrollElements: "#home .scroll-wrap",
-          normalScrollElementTouchThreshold: 15,
-          touchSensitivity: 10,
+
           afterRender: function (anchorLink, index) {
             NavbarColor();
           },
