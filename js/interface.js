@@ -145,5 +145,19 @@
 			});
 		});
 	}
+    
+    $(document).on("click", ".js-start", function (e) {
+      e.preventDefault();
+
+      if ($.fn.pagepiling && $.fn.pagepiling.moveTo) {
+        $.fn.pagepiling.moveTo("bio"); // siguiente sección
+      } else if ($.fn.pagepiling && $.fn.pagepiling.moveSectionDown) {
+        $.fn.pagepiling.moveSectionDown();
+      } else {
+        // fallback: ancla normal
+        var el = document.getElementById("bio");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
+    });
 
 })(jQuery);

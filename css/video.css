@@ -151,7 +151,8 @@
 
 /* Oculta el mobile-person en desktop */
 #home .home-person--mobile{ display: none; }
-
+.btn-start-mobile{ display: none; }
+.btn-start-mobile-fixed{ display: none; }
 /* Texto arriba de la persona desktop */
 #home .intro{ position: relative; z-index: 2; }
 
@@ -210,6 +211,35 @@
     max-height: 100vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 5.5rem 0 1.25rem !important;
   }
+
+  .btn-start-mobile{
+    display: inline-block;
+    margin-top: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+    .btn-start-mobile-fixed{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+
+    bottom: max(16px, env(safe-area-inset-bottom)); /* iPhone notch */
+    z-index: 3000;
+
+    width: min(92vw, 420px);
+    padding: 14px 18px;
+    border-radius: 999px;
+    box-shadow: 0 14px 30px rgba(0,0,0,.35);
+  }
+
+  /* Para que no tape contenido del home */
+  #home .scroll-wrap{
+    padding-bottom: 6rem !important;
+  }
+
 }
