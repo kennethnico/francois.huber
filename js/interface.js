@@ -28,21 +28,31 @@
     /* Full page scroll*/
     if ($('#pagepiling').length > 0){
 
-        $('#pagepiling').pagepiling({
-            scrollingSpeed: 280,
-            navigation:false,
-            menu: '.navbar-nav',
-            //anchors: ['home', 'bio', 'experience', 'noticias', 'publicaciones', 'canal', 'testimonials', 'news', 'contact'],
-            anchors: ['home', 'bio', 'experience', 'noticias', 'publicaciones', 'canal'],
-            afterRender: function(anchorLink, index){ 
-              NavbarColor();
-
-            },
-            afterLoad: function(anchorLink, index){
-                $('.pp-section .intro').removeClass('animate');
-                $('.active .intro').addClass('animate');
-                NavbarColor();
-            }
+        $("#pagepiling").pagepiling({
+          scrollingSpeed: 280,
+          navigation: false,
+          menu: ".navbar-nav",
+          //anchors: ['home', 'bio', 'experience', 'noticias', 'publicaciones', 'canal', 'testimonials', 'news', 'contact'],
+          anchors: [
+            "home",
+            "bio",
+            "experience",
+            "noticias",
+            "publicaciones",
+            "canal",
+          ],
+          // IMPORTANTE para mobile:
+          normalScrollElements: "#home .scroll-wrap",
+          normalScrollElementTouchThreshold: 15,
+          touchSensitivity: 10,
+          afterRender: function (anchorLink, index) {
+            NavbarColor();
+          },
+          afterLoad: function (anchorLink, index) {
+            $(".pp-section .intro").removeClass("animate");
+            $(".active .intro").addClass("animate");
+            NavbarColor();
+          },
         });
 
   
